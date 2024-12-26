@@ -2,4 +2,4 @@ repositories:
   simulator/scenario_simulator:
     type: git
     url: https://github.com/katsuwoo/scenario_simulator_v2.git
-    version: e1111f5ba946724d3662009e147e994bce1504ed
+    version: master
