@@ -1,5 +1,5 @@
 repositories:
   simulator/scenario_simulator:
     type: git
-    url: https://github.com/katsuwoo/scenario_simulator_v2_priv.git
+    url: git@github.com:katsuwoo/scenario_simulator_v2_priv.git
     version: 15.1.1
