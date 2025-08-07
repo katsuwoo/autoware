@@ -109,14 +109,6 @@ simulations:
         artifact: main
       runtime:
         type: gpu1/amd64/large
-      pre_tasks:
-        - exec: source /opt/autoware/install/setup.bash && ros2 launch autoware_lidar_centerpoint lidar_centerpoint.launch.xml model_name:=centerpoint model_path:=/home/autoware/autoware_data/lidar_centerpoint model_param_path:=$(ros2 pkg prefix lidar_centerpoint --share)/config/centerpoint.param.yaml build_only:=true
-          mounts:
-            - volume: model
-      volumes:
-        - name: model
-          path: /home/autoware/autoware_data/lidar_centerpoint
-          preserve_original_files: true
 
 release:
   components:
