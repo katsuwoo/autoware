@@ -10,7 +10,7 @@ artifacts:
     build:
       type: custom
       runtime:
-        type: gpu1/amd64/large
+        type: standard1/amd64/large
       source:
         vcstool:
           repositories_files:
