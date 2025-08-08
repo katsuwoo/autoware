@@ -19,7 +19,7 @@ artifacts:
             - tools.repos
           import_path: src
       environment_variables:
-        AUTOWARE_PATH: /opt/autoware
+        AUTOWARE_PATH: /home/autoware/autoware
         DEBIAN_FRONTEND: noninteractive
         LANG: C.UTF-8
       linux_parameters:
@@ -73,7 +73,7 @@ artifacts:
         from: ubuntu:22.04
       output_container_image:
         from: autoware-build
-        workdir: /opt/autoware
+        workdir: /home/autoware/autoware
         user: autoware
 
 simulations:
@@ -110,7 +110,7 @@ simulations:
       runtime:
         type: gpu1/amd64/large
       pre_tasks:
-        - exec: source /opt/autoware/install/setup.bash && ros2 launch autoware_lidar_centerpoint lidar_centerpoint.launch.xml model_name:=centerpoint_tiny model_path:=/home/autoware/autoware_data/lidar_centerpoint model_param_path:=$(ros2 pkg prefix autoware_lidar_centerpoint --share)/config/centerpoint_tiny.param.yaml build_only:=true
+        - exec: source /home/autoware/autoware/install/setup.bash && ros2 launch autoware_lidar_centerpoint lidar_centerpoint.launch.xml model_name:=centerpoint_tiny model_path:=/home/autoware/autoware_data/lidar_centerpoint model_param_path:=$(ros2 pkg prefix autoware_lidar_centerpoint --share)/config/centerpoint_tiny.param.yaml build_only:=true
           mounts:
             - volume: model
       volumes:
