@@ -20,6 +20,7 @@ artifacts:
           import_path: src
       environment_variables:
         AUTOWARE_PATH: /home/autoware/autoware
+        ML_MODELS_PATH: /opt/autoware/mlmodels
         DEBIAN_FRONTEND: noninteractive
         LANG: C.UTF-8
       linux_parameters:
@@ -69,6 +70,12 @@ artifacts:
             key_files:
               - .webauto-ci/main/autoware-build/**/*
               - src/**/*
+        - name: asset-deploy
+          user: autoware
+          exec: ./.webauto-ci/main/asset-deploy/run.sh
+          ml_packages:
+            - name: centerpoint_tiny
+              release: demo/mlmodel/v0.0.3
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
