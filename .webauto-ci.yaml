@@ -19,7 +19,7 @@ artifacts:
             - tools.repos
           import_path: src
       environment_variables:
-        AUTOWARE_PATH: /home/autoware/autoware
+        AUTOWARE_PATH: /opt/autoware
         ML_MODELS_PATH: /opt/autoware/mlmodels
         DEBIAN_FRONTEND: noninteractive
         LANG: C.UTF-8
@@ -80,7 +80,7 @@ artifacts:
         from: ubuntu:22.04
       output_container_image:
         from: asset-deploy
-        workdir: /home/autoware/autoware
+        workdir: /opt/autoware
         user: autoware
 
 simulations:
