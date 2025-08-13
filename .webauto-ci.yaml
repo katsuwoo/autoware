@@ -79,7 +79,7 @@ artifacts:
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
-        from: autoware-build
+        from: asset-deploy
         workdir: /home/autoware/autoware
         user: autoware
 
