@@ -74,7 +74,7 @@ artifacts:
           user: autoware
           exec: ./.webauto-ci/main/asset-deploy/run.sh
           ml_packages:
-            - name: centerpoint_tiny
+            - name: centerpoint_tiny_katsuya
               release: demo/mlmodel/v0.0.3
       base_container_image:
         from: ubuntu:22.04
