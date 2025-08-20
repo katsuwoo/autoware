@@ -116,6 +116,8 @@ simulations:
         artifact: main
       runtime:
         type: gpu1/amd64/large
+      parameters:
+        centerpoint_model_path: "/home/autoware/autoware_data/lidar_centerpoint"
 
 release:
   components:
