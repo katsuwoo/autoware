@@ -117,7 +117,7 @@ simulations:
       runtime:
         type: gpu1/amd64/large
       parameters:
-        centerpoint_model_path: "/home/autoware/autoware_data/lidar_centerpoint"
+        centerpoint_model_path: "/opt/autoware/mlmodels/centerpoint_tiny_katsuya"
 
 release:
   components:
