@@ -86,6 +86,7 @@ artifacts:
 simulations:
   - name: lexus_planning_sim
     type: planning_sim_v2
+    scenario_parameter_group: test_param_group
     simulator:
       deployment:
         type: container
@@ -129,3 +130,8 @@ release:
       deployment:
         type: container
         artifact: main
+
+scenario_parameter_groups:
+  - name: test_param_group
+    parameters:
+      __ego_dimensions_length__: 1.3
