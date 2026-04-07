@@ -22,4 +22,4 @@ repositories:
   simulator/tool/autoware_tools:
     type: git
     url: https://github.com/autowarefoundation/autoware_tools.git
-    version: main
+    version: 0.6.0
