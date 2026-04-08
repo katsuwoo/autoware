@@ -7,7 +7,7 @@ ARG ROS_DISTRO=humble
 FROM $AUTOWARE_BASE_IMAGE AS rosdep-depend
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-COPY setup-dev-env.sh ansible-galaxy-requirements.yaml amd64.env amd64_jazzy.env arm64.env /autoware/
+COPY setup-dev-env.sh ansible-galaxy-requirements.yaml /autoware/
 COPY ansible/ /autoware/ansible/
 COPY docker/scripts/cleanup_apt.sh /autoware/cleanup_apt.sh
 RUN chmod +x /autoware/cleanup_apt.sh
@@ -192,6 +192,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG ROS_DISTRO
 ENV CCACHE_DIR="/root/.ccache"
 
+ENV CMAKE_PREFIX_PATH="/opt/acados:${CMAKE_PREFIX_PATH}"
+ENV ACADOS_SOURCE_DIR="/opt/acados"
+ENV LD_LIBRARY_PATH="/opt/acados/lib:${LD_LIBRARY_PATH}"
+
 COPY docker/scripts/build_and_clean.sh /autoware/build_and_clean.sh
 RUN chmod +x /autoware/build_and_clean.sh
 
@@ -249,10 +253,6 @@ FROM core-devel AS universe-common-devel
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG ROS_DISTRO
 ENV CCACHE_DIR="/root/.ccache"
-
-ENV CMAKE_PREFIX_PATH="/opt/acados:${CMAKE_PREFIX_PATH}"
-ENV ACADOS_SOURCE_DIR="/opt/acados"
-ENV LD_LIBRARY_PATH="/opt/acados/lib:${LD_LIBRARY_PATH}"
 
 # Install rosdep dependencies
 COPY --from=rosdep-depend /rosdep-universe-common-depend-packages.txt /tmp/rosdep-universe-common-depend-packages.txt
