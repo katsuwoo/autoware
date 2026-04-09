@@ -40,6 +40,7 @@ rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO"
 
 colcon build \
     --cmake-args -DCMAKE_BUILD_TYPE="$build_type" -DBUILD_TESTING=off -Wno-dev --no-warn-unused-cli \
+    --packages-ignore  autoware_tensorrt_vad \
     --symlink-install \
     --catkin-skip-building-tests \
     --executor parallel \
