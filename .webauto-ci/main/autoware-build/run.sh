@@ -26,6 +26,7 @@ fi
 # install xmlschema<4.0.0 before rosdep install as workaround for scenario_simulator_v2
 sudo pip3 install xmlschema==3.4.5
 
+rm -rf src/simulator/tool/autoware_tools/system/reaction_analyzer
 sudo -E apt-get -y update
 
 # shellcheck disable=SC2012
